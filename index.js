@@ -7,7 +7,7 @@ const interest = document.getElementById("interest");
 const individual = document.getElementById("individual");
 const organization = document.getElementById("organization");
 const about = document.getElementById("about");
-const errorElement = document.getElementById("error");
+// const errorElement = document.getElementById("username");
 const form = document.getElementById("form");
 
 // Preventing from submitting bofore error identification
@@ -15,23 +15,56 @@ const form = document.getElementById("form");
 form.addEventListener("submit", (e) => {
 
     let messages = [];
-    if (fname.value === " " || fname.value == null) {
-        messages.push("Name is required");
+    if (fname.value === "" || fname.value == null) {
+        // messages.push("Name is required");
+        document.getElementById("username").innerHTML="  *** Please fill the username"
     }
-    if (fname.value.length < 6) {
+    if (fname.value.length < 5) {
         messages.push("Name is too short");
     }
     if (fname.value.length > 20) {
         messages.push("Name is too long");
     }
     if (email.value === "" || email.value == null) {
-        messages.push("email is required");
+        // messages.push("email is required");
+        document.getElementById("emailid").innerHTML="  *** Please fill the email"
+
     }
+    if (!(dob.value)) {
+        document.getElementById("dobs").innerHTML="  *** Select the date"
+    }
+    // if(!organization.checked || !individual.checked) {
+    //     document.getElementById("organizations").innerHTML="  *** Select the individual"
+    //     document.getElementById("individuals").innerHTML="  *** Select the individual"
+      
+    // }
+    
+    if (about.value.length ==0) {
+        document.getElementById("aboutus").innerHTML="  *** We really need to know about yourself"
+        // messages.push("We really need to know about yourself");
+    }
+  
     if (messages.length > 0) {
         e.preventDefault();
         errorElement.innerText = messages.join(',');
     }
 })
+
+let url = window.location.search;
+let queries = new URLSearchParams(url);
+let name1 = queries.get("name");
+let email1 = queries.get("email");
+let dob1 = queries.get("dob");
+let interest1 = queries.get("interest");
+let about1 = queries.get("about");
+let organization1=queries.get("organization");
+let individual1=queries.get("individual");
+let A= [name1,email1,dob1,interest1,organization1,individual1,about1];
+openWindow = window.open("Contact.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
+for (i=0; i<1;i++) {
+    openWindow.document.write( A +'   '+'\n');
+}
+
 // new
 
 
