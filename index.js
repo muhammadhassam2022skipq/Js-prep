@@ -32,18 +32,23 @@ form.addEventListener("submit", (e) => {
         errorElement.innerText = messages.join(',');
     }
 })
-// Next Method
-function ValidateInput() {
-	const fname = document.getElementById("name");
-	var txtUser = document.getElementById("txtUser");
-	try {
-		if (x == "") throw "empty";
-	}
-	catch (err) {
-		divJs.innerHTML = "Input is " + err;
-	}
+// new
 
-}
+
+
+
+// Next Method
+// function ValidateInput() {
+// 	const fname = document.getElementById("name");
+// 	var txtUser = document.getElementById("txtUser");
+// 	try {
+// 		if (x == "") throw "empty";
+// 	}
+// 	catch (err) {
+// 		divJs.innerHTML = "Input is " + err;
+// 	}
+
+// }
 
 
 
