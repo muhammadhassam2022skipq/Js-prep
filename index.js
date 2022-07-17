@@ -11,12 +11,12 @@ const form = document.getElementById("form");
 //form validation function
 
 validateForm = () => {
-    if (fname.value === "" || fname.value == null) {
+    if (!fname.value) {
         document.getElementById("username").innerHTML =
             "  *** Please fill the username";
         return false;
     }
-    if (email.value === "" || email.value == null) {
+    if (!email.value) {
         document.getElementById("emailid").innerHTML =
             "  *** Please fill the email";
         return false;
@@ -38,13 +38,14 @@ validateForm = () => {
         document.getElementById("aboutus").innerHTML= "*** please write something about yourself";
         return false;
     }
-    if (document.getElementById("organization").checked == true && document.getElementById("individual").checked == false || document.getElementById("organization").checked == false && document.getElementById("individual").checked == true) {
-        return true;
-    }
+
     if (document.getElementById("organization").checked == false && document.getElementById("individual").checked == false) {
         document.getElementById("organizations").innerHTML =
             "  *** Select Either organization or individual";
         return false;
+    }
+    if (document.getElementById("organization").checked == true && document.getElementById("individual").checked == false || document.getElementById("organization").checked == false && document.getElementById("individual").checked == true) {
+        return true;
     }
 
 else {
@@ -71,5 +72,5 @@ openWindow = window.open(
   "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400"
 );
 for (i = 0; i < 1; i++) {
-  openWindow.document.write(A + "   \n");
+  openWindow.document.write(A +"</p>");
 };
