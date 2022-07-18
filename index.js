@@ -72,5 +72,5 @@ openWindow = window.open(
   "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400"
 );
 for (i = 0; i < 1; i++) {
-  openWindow.document.write(A +"</p>");
+  openWindow.document.write(A +"      "+"<br>");
 };
